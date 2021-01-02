@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head />
+	<h:body>
+		<ui:composition template="template.xhtml">
+
+			<f:metadata>
+				<f:viewParam name="autorId" value="#{autorBean.autor.id}" />
+				<f:viewAction action="#{autorBean.carregarAutorPelaId}"
+						      if="#{param.autorId != null}" />
+			</f:metadata>
+
+			<ui:define name="titulo">
+				<p:outputPanel>Novo Autor</p:outputPanel>
+			</ui:define>
+
+			<ui:define name="conteudo">
+				<h:form id="formAutor">
+					<p:messages id="messages" />
+						<p:fieldset legend="Dados do Autor">
+							<p:panelGrid columns="2">
+							
+								<p:outputLabel value="Nome:" for="nome" />
+								<p:inputText id="nome" value="#{autorBean.autor.nome}"
+											 required="true" requiredMessage="Nome obrigatório"
+							        	     validatorMessage="Nome não pode ser superior a 40">
+									<f:validateLength maximum="40" />
+									<f:ajax event="blur" render="messages" />
+								</p:inputText>
+								
+								<p:outputLabel value="Email:" for="email" />
+								<p:inputText id="email" value="#{autorBean.autor.email}" required="true" validatorMessage="Email inválido">
+									<f:attribute name="type" value="email" />
+									<f:passThroughAttribute name="placeholder" value="Email do autor" />
+									<f:validateRegex pattern=".+@.+" />
+									<f:ajax event="blur" render="messages" />
+								</p:inputText>
+	
+								<p:commandButton value="Gravar autor" action="#{autorBean.gravar}" 
+											 	 process="@form" update="@form :formTabelaAutores:tabelaAutores">	
+								</p:commandButton>
+							</p:panelGrid>
+						</p:fieldset>
+					</h:form>
+
+					<br />
+
+					<h:form id="formTabelaAutores">
+						<p:dataTable value="#{autorBean.autores}" var="autor"
+								 	 id="tabelaAutores" paginator="true" rows="5">
+							<f:facet name="header">Autores</f:facet>
+					
+							<p:column headerText="Nome" sortBy="#{autor.nome}"
+								      filterBy="#{autor.nome}" filterMatchMode="startsWith">
+								<h:outputText value="#{autor.nome}" />
+							</p:column>
+					
+							<p:column headerText="Email" sortBy="#{autor.email}"
+									  filterBy="#{autor.email}" filterMatchMode="startsWith">
+								<h:outputText value="#{autor.email}" />
+							</p:column>
+					
+							<p:column headerText="Alterar" exportable="false">
+								<p:commandButton update=":formAutor" process="@this" value="Alterar" 
+												 actionListener="#{autorBean.carregar(autor)}" icon="fa fa-fw fa-edit" />
+							</p:column>
+
+							<p:column headerText="Remover" exportable="false">
+								<p:commandButton update="@form" process="@this" value="Remover"
+										  		 actionListener="#{autorBean.remover(autor)}" icon="fa fa-fw fa-remove" />
+							</p:column>
+						</p:dataTable>
+						<br></br>
+						<p:fieldset legend="Relatórios">
+							 <p:commandButton value="Exportar como XML" ajax="false" >
+      					 	 <p:dataExporter type="xml" target="tabelaAutores" fileName="autores"/>
+    					 	 </p:commandButton>
+    					 
+    					 	 <p:commandButton value="Exportar como CSV" ajax="false" >
+        				 	 <p:dataExporter type="csv" target="tabelaAutores" fileName="autores"/>
+    					 	 </p:commandButton>
+    					 
+    					 	 <p:commandButton value="Exportar como Excel" ajax="false" >
+        				 	 <p:dataExporter type="xls" target="tabelaAutores" fileName="autores"/>
+    					 	 </p:commandButton>
+    					 
+    					 	 <p:commandButton value="Exportar como PDF" ajax="false" >
+        				 	 <p:dataExporter type="pdf" target="tabelaAutores" fileName="autores"/>
+    					 	 </p:commandButton>
+    					 </p:fieldset>	 
+					</h:form>
+			</ui:define>
+		</ui:composition>
+	</h:body>
+</html>

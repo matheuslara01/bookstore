@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head />
+	<h:body>
+		<ui:composition template="template.xhtml">
+
+			<f:metadata>
+				<f:viewParam name="usuarioId" value="#{usuarioBean.usuario.id}" />
+				<f:viewAction action="#{usuarioBean.carregarUsuarioPelaId}"
+						      if="#{param.usuarioId != null}" />
+			</f:metadata>
+
+			<ui:define name="titulo">
+				<p:outputPanel>Novo Usuário</p:outputPanel>
+			</ui:define>
+
+			<ui:define name="conteudo">
+				<h:form id="formUsuario">
+					<p:messages id="messages" />
+						<p:fieldset legend="Dados do Usuario">
+							<p:panelGrid columns="2">
+							
+								<p:outputLabel value="Nome:" for="nome" />
+								<p:inputText id="nome" value="#{usuarioBean.usuario.nome}"
+											 required="true" requiredMessage="Nome obrigatório"
+							        	     validatorMessage="Nome não pode ser superior a 40">
+									<f:validateLength maximum="40" />
+									<f:ajax event="blur" render="messages" />
+								</p:inputText>
+								
+								<p:outputLabel value="Email:" for="email" />
+								<p:inputText id="email" value="#{usuarioBean.usuario.email}" required="true" validatorMessage="Email inválido">
+									<f:attribute name="type" value="email" />
+									<f:passThroughAttribute name="placeholder" value="Email do usuario" />
+									<f:validateRegex pattern=".+@.+" />
+									<f:ajax event="blur" render="messages" />
+								</p:inputText>
+								
+								<p:outputLabel value="Senha:" for="senha" />
+								<p:password id="senha" value="#{usuarioBean.usuario.senha}" feedback="true" required="true" />
+								<p:message for="senha" id="messageSenha" />
+	
+								<p:commandButton value="Gravar Usuario" action="#{usuarioBean.gravar}" 
+											 	 process="@form" update="@form :formTabelaUsuarios:tabelaUsuarios">	
+								</p:commandButton>
+							</p:panelGrid>
+						</p:fieldset>
+					</h:form>
+
+					<br />
+
+					<h:form id="formTabelaUsuarios">
+						<p:dataTable value="#{usuarioBean.usuarios}" var="usuario"
+								 	 id="tabelaUsuarios" paginator="true" rows="5">
+							<f:facet name="header">Usuarios</f:facet>
+					
+							<p:column headerText="Nome" sortBy="#{usuario.nome}"
+								      filterBy="#{usuario.nome}" filterMatchMode="startsWith">
+								<h:outputText value="#{usuario.nome}" />
+							</p:column>
+					
+							<p:column headerText="Email" sortBy="#{usuario.email}"
+									  filterBy="#{usuario.email}" filterMatchMode="startsWith">
+								<h:outputText value="#{usuario.email}" />
+							</p:column>
+					
+							<p:column headerText="Alterar" exportable="false">
+								<p:commandButton update=":formUsuario" process="@this" value="alterar" 
+												 actionListener="#{usuarioBean.carregar(usuario)}" icon="fa fa-fw fa-edit" />
+							</p:column>
+
+							<p:column headerText="Remover" exportable="false">
+								<p:commandButton update="@form" process="@this" value="remover"
+										  		 actionListener="#{usuarioBean.remover(usuario)}" icon="fa fa-fw fa-remove" />
+							</p:column>
+						</p:dataTable>
+						
+						<br></br>
+													
+						<p:fieldset legend="Relatórios">
+							 <p:commandButton value="Exportar como XML" ajax="false" >
+      					 	 <p:dataExporter type="xml" target="tabelaUsuarios" fileName="usuarios"/>
+    					 	 </p:commandButton>
+    					 
+    					 	 <p:commandButton value="Exportar como CSV" ajax="false" >
+        				 	 <p:dataExporter type="csv" target="tabelaUsuarios" fileName="usuarios"/>
+    					 	 </p:commandButton>
+    					 
+    					 	 <p:commandButton value="Exportar como Excel" ajax="false" >
+        				 	 <p:dataExporter type="xls" target="tabelaUsuarios" fileName="usuarios"/>
+    					 	 </p:commandButton>
+    					 
+    					 	 <p:commandButton value="Exportar como PDF" ajax="false" >
+        				 	 <p:dataExporter type="pdf" target="tabelaUsuarios" fileName="usuarios"/>
+    					 	 </p:commandButton>
+    					 </p:fieldset>	
+					</h:form>
+			</ui:define>
+		</ui:composition>
+	</h:body>
+</html>
