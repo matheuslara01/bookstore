@@ -1,13 +1,13 @@
 # Controle de Estoque de Livraria
 
+O projeto de Controle de Estoque de Livraria é uma aplicação desenvolvida em JavaEE que tem como objetivo gerenciar o estoque de uma livraria. Ele permite o registro e a atualização de informações sobre os livros disponíveis, como título, autor, editora, preço e quantidade em estoque.
+
 ![JavaEE](https://img.shields.io/badge/-JavaEE-007396?style=flat&logo=javaee&logoColor=white) 
 ![Servlets](https://img.shields.io/badge/-Servlets-007396?style=flat&logo=java&logoColor=white) 
 ![JSP](https://img.shields.io/badge/-JSP-007396?style=flat&logo=jsp&logoColor=white) 
 ![JDBC](https://img.shields.io/badge/-JDBC-007396?style=flat&logo=java&logoColor=white) 
 ![Banco de Dados Relacional](https://img.shields.io/badge/-Banco%20de%20Dados%20Relacional-007396?style=flat&logo=mysql&logoColor=white)
 ![PrimeFaces](https://img.shields.io/badge/-PrimeFaces-007396?style=flat&logo=primefaces&logoColor=white)
-
-O projeto de Controle de Estoque de Livraria é uma aplicação desenvolvida em JavaEE que tem como objetivo gerenciar o estoque de uma livraria. Ele permite o registro e a atualização de informações sobre os livros disponíveis, como título, autor, editora, preço e quantidade em estoque.
 
 ## Funcionalidades
 
@@ -39,25 +39,25 @@ O projeto de Controle de Estoque de Livraria é uma aplicação desenvolvida em 
 
 - XMLBeans: Framework para geração de binários XML a partir de esquemas XML.
 
-## Configuração do Ambiente
+## Pré-requisitos
 
-Para configurar o ambiente e executar o projeto, siga as etapas abaixo:
+Certifique-se de ter o seguinte software instalado em sua máquina:
 
-1. Certifique-se de ter instalado o JDK (Java Development Kit) em sua máquina.
+- JDK (Java Development Kit) 8 ou superior.
+- Servidor de Aplicação compatível com JavaEE, como Apache Tomcat.
+- Banco de Dados Relacional (por exemplo, MySQL) e as devidas configurações de conexão.
+- 
+## Instalação e Configuração
 
-2. Configure um servidor web JavaEE, como o Apache Tomcat, em seu ambiente de desenvolvimento.
+1. Clone o repositório em sua máquina local.
 
-3. Configure um banco de dados relacional e crie uma tabela para armazenar as informações dos livros.
+2. Importe o projeto em sua IDE favorita (por exemplo, Eclipse, IntelliJ IDEA) como um projeto Maven existente.
 
-4. Clone ou faça o download do projeto em seu ambiente de desenvolvimento.
+3. Configure a conexão com o banco de dados no arquivo `persistence.xml`.
 
-5. Abra o arquivo `pom.xml` na pasta raiz do projeto e verifique as dependências listadas.
+4. Inicie o servidor de aplicação e implante o projeto.
 
-6. Certifique-se de que as versões das dependências mencionadas estão corretamente configuradas no arquivo `pom.xml`.
-
-7. Compile e execute o projeto no servidor web JavaEE configurado.
-
-8. Acesse a aplicação em um navegador web usando a URL fornecida pelo servidor web.
+5. Acesse o sistema pelo navegador utilizando a URL fornecida pelo servidor de aplicação.
 
 ## Contribuição
 
