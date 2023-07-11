@@ -46,7 +46,7 @@ Certifique-se de ter o seguinte software instalado em sua máquina:
 - JDK (Java Development Kit) 8 ou superior.
 - Servidor de Aplicação compatível com JavaEE, como Apache Tomcat.
 - Banco de Dados Relacional (por exemplo, MySQL) e as devidas configurações de conexão.
-- 
+
 ## Instalação e Configuração
 
 1. Clone o repositório em sua máquina local.
