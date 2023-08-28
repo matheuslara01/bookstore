@@ -1,6 +1,6 @@
-# Controle de Estoque de Livraria
+# Bookstore Inventory Control
 
-O projeto de Controle de Estoque de Livraria é uma aplicação desenvolvida em JavaEE que tem como objetivo gerenciar o estoque de uma livraria. Ele permite o registro e a atualização de informações sobre os livros disponíveis, como título, autor, editora, preço e quantidade em estoque.
+The Bookstore Inventory Control project is an application developed in JavaEE that aims to manage the inventory of a bookstore. It allows recording and updating information about available books, such as title, author, publisher, price and quantity in stock.
 
 ![JavaEE](https://img.shields.io/badge/-JavaEE-007396?style=flat&logo=javaee&logoColor=white) 
 ![Servlets](https://img.shields.io/badge/-Servlets-007396?style=flat&logo=java&logoColor=white) 
@@ -9,74 +9,56 @@ O projeto de Controle de Estoque de Livraria é uma aplicação desenvolvida em 
 ![Banco de Dados Relacional](https://img.shields.io/badge/-Banco%20de%20Dados%20Relacional-007396?style=flat&logo=mysql&logoColor=white)
 ![PrimeFaces](https://img.shields.io/badge/-PrimeFaces-007396?style=flat&logo=primefaces&logoColor=white)
 
-## Funcionalidades
+## Functionalities
 
-- Cadastro de livros: Permite adicionar novos livros ao estoque informando os detalhes relevantes, como título, autor, editora, preço e quantidade disponível.
+- Book registration: Allows you to add new books to the stock by informing the relevant details, such as title, author, publisher, price and available quantity.
 
-- Atualização de informações: Permite editar as informações de um livro existente, como preço e quantidade em estoque.
+- Update Information: Allows you to edit an existing book's information, such as price and quantity in stock.
 
-- Consulta de estoque: Permite visualizar a lista de todos os livros disponíveis, incluindo seus detalhes e quantidade em estoque.
+- Inventory Inquiry: Allows you to view the list of all available books, including their details and quantity in stock.
 
-- Pesquisa de livros: Permite pesquisar livros por título, autor ou editora para facilitar a localização de informações específicas.
+- Book Search: Lets you search for books by title, author, or publisher to make it easy to find specific information.
 
-## Tecnologias Utilizadas
+## Technologies Used
 
-- JavaEE: Plataforma para o desenvolvimento de aplicações corporativas em Java.
+- JavaEE: Platform for developing corporate applications in Java.
 
-- Servlets: Componentes Java que são executados em um servidor web para processar solicitações HTTP.
+- Servlets: Java components that run on a web server to process HTTP requests.
 
-- JSP (JavaServer Pages): Tecnologia que permite a criação de páginas web dinâmicas, mesclando código Java com HTML.
+- JSP (JavaServer Pages): Technology that allows the creation of dynamic web pages, mixing Java code with HTML.
 
-- JDBC (Java Database Connectivity): API do Java para conexão com banco de dados, utilizada para realizar operações de persistência dos dados.
+- JDBC (Java Database Connectivity): Java API for database connection, used to perform data persistence operations.
 
-- Banco de Dados Relacional: Utilize um banco de dados relacional (por exemplo, MySQL, PostgreSQL) para armazenar as informações dos livros.
+- Relational Database: Use a relational database (eg MySQL, PostgreSQL) to store book information.
 
-- PrimeFaces: Biblioteca de componentes para desenvolvimento de interfaces de usuário (UI) baseadas em JavaServer Faces (JSF). Ela oferece uma ampla gama de componentes reutilizáveis e personalizáveis para facilitar a criação de interfaces de usuário ricas.
+- PrimeFaces: Component library for developing user interfaces (UI) based on JavaServer Faces (JSF). It offers a wide range of reusable and customizable components to facilitate the creation of rich user interfaces.
 
-- itext: Biblioteca para criação e manipulação de documentos PDF em Java.
+- itext: Library for creating and manipulating PDF documents in Java.
 
-- Apache POI: Biblioteca para manipulação de arquivos do Microsoft Office (por exemplo, Word, Excel) em Java.
+- Apache POI: Library for handling Microsoft Office files (eg Word, Excel) in Java.
 
-- XMLBeans: Framework para geração de binários XML a partir de esquemas XML.
+- XMLBeans: Framework for generating XML binaries from XML schemas.
 
-## Pré-requisitos
+## Prerequisites
 
-Certifique-se de ter o seguinte software instalado em sua máquina:
+Make sure you have the following software installed on your machine:
 
-- JDK (Java Development Kit) 8 ou superior.
-- Servidor de Aplicação compatível com JavaEE, como Apache Tomcat.
-- Banco de Dados Relacional (por exemplo, MySQL) e as devidas configurações de conexão.
+- JDK (Java Development Kit) 8 or higher.
+- Application Server compatible with JavaEE, such as Apache Tomcat.
+- Relational Database (eg MySQL) and appropriate connection settings.
 
-## Instalação e Configuração
+## Installation and Configuration
 
-1. Clone o repositório em sua máquina local.
+1. Clone the repository on your local machine.
 
-2. Importe o projeto em sua IDE favorita (por exemplo, Eclipse, IntelliJ IDEA) como um projeto Maven existente.
+2. Import the project into your favorite IDE (eg Eclipse, IntelliJ IDEA) as an existing Maven project.
 
-3. Configure a conexão com o banco de dados no arquivo `persistence.xml`.
+3. Configure the database connection in the `persistence.xml` file.
 
-4. Inicie o servidor de aplicação e implante o projeto.
+4. Start the application server and deploy the project.
 
-5. Acesse o sistema pelo navegador utilizando a URL fornecida pelo servidor de aplicação.
+5. Access the system through the browser using the URL provided by the application server.
 
-## Contribuição
+## License
 
-Contribuições para o aprimoramento do projeto são sempre bem-vindas. Se você deseja contribuir, siga as etapas abaixo:
-
-1. Faça um fork do repositório do projeto.
-
-2. Crie uma branch para a sua contribuição.
-
-3. Faça as alterações desejadas no código.
-
-4. Faça commit das suas alterações.
-
-5. Faça push para a sua branch.
-
-6. Abra um Pull Request para o repositório original.
-
-7. Aguarde a revisão e discussão da sua contribuição.
-
-## Licença
-
-Este projeto está licenciado sob a [MIT License](LICENSE).
+This project is licensed under the [MIT License](LICENSE).
